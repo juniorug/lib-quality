@@ -1,7 +1,7 @@
 version: "2"
 
 services:
-  node-ts-otimizado:
+  lib-quality-ejr:
     build:
       context: .
       dockerfile: Dockerfile.dev
