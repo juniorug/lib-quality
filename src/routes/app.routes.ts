@@ -3,7 +3,6 @@ import * as projectController from '../controllers/projec.controller'
 
 const appRouter = Router();
 
-// Adicionamos uma rota de teste
 appRouter.get("/projects", (request, response) => {
     response.json({
       message: "Hello Projects",

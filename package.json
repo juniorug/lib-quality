@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint --fix ./src/*",
+    "swagger": "cd ./swagger && gulp swagger",
     "dev": "ts-node-dev --respawn --transpileOnly src/app.ts",
     "dev:debug": "ts-node-dev --inspect=8181 --respawn --transpileOnly src/app.ts"
   },
@@ -42,6 +43,7 @@
   },
   "dependencies": {
     "axios": "^0.20.0",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "swagger-ui-express": "^4.1.4"
   }
 }

@@ -1,0 +1,61 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "lib-quality",
+    "description": "Collects data from GitHub, consolidate, and make them available through a REST api.",
+    "contact": {
+      "email": "juniorug@gmail.com"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "host": "localhost:8080",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "projects",
+      "description": "Everything about Projects in GitHub"
+    }
+  ],
+  "schemes": ["http", "https"],
+  "paths": {
+    "/projects": {
+      "get": {
+        "tags": ["projects"],
+        "summary": "Get info project info from github",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/projects/{name}": {
+      "get": {
+        "tags": ["projects"],
+        "summary": "Get info from a specific project from github",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "name",
+            "type": "string",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  }
+}
