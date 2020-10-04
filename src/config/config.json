@@ -1,0 +1,9 @@
+{
+  "config_id": "development",
+  "app_name": "lib-quality",
+  "app_desc": "Collects data from GitHub, consolidate, and make them available through a REST api.",
+  "port": 8080,
+  "json_indentation": 4,
+  "database": "lib-quality-db-dev",
+  "github_url": "https://api.github.com/"
+}

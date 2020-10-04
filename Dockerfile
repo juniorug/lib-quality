@@ -10,4 +10,4 @@ RUN npm i
 
 EXPOSE 8080
 
-CMD [ "node", "dist/index.js" ]
+CMD [ "node", "dist/app.js" ]

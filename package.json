@@ -2,12 +2,12 @@
   "name": "lib-quality",
   "version": "1.0.0",
   "description": "Collects data from GitHub, consolidate, and make them available through a REST api.",
-  "main": "dist/index.js",
+  "main": "dist/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint --fix ./src/*",
-    "dev": "ts-node-dev --respawn --transpileOnly src/index.ts",
-    "dev:debug": "ts-node-dev --inspect=8181 --respawn --transpileOnly src/index.ts"
+    "dev": "ts-node-dev --respawn --transpileOnly src/app.ts",
+    "dev:debug": "ts-node-dev --inspect=8181 --respawn --transpileOnly src/app.ts"
   },
   "repository": {
     "type": "git",
@@ -41,6 +41,7 @@
     "typescript": "^3.7.3"
   },
   "dependencies": {
+    "axios": "^0.20.0",
     "express": "^4.17.1"
   }
 }
