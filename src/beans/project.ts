@@ -1,17 +1,17 @@
 export class  Project {
     
+    id:number;
     project_name:string;
-    project_id:number;
     company_name:string;
     user_visit: number;
 
-    constructor (project_name:string ) {
-        this.project_name   = project_name;
-        this.company_name    = this.getCompanyName();
+    constructor (project_name:string, company_name: string ) {
+        this.project_name = project_name;
+        this.company_name = company_name;
         this.user_visit = 0;
     }
 
-    getProjectPath() {
+    public getProjectPath() {
         return this.company_name.concat('/', this.project_name);
     }
 
