@@ -29,3 +29,6 @@ To build and run the docker container run the following in the project root.
 docker-compose build
 docker-compose up --remove-orphans
 ```
+### Swagger doc
+the swagger documentation can be found at 
+http://localhost:8080/api-docs/#/
