@@ -1,8 +1,8 @@
 import { Project } from "../beans/project";
-import {getData, incrementCount, getProjectByName, getProjectByID}  from "../utils/dbconnection";
+import {getData, getProjectByName, getProjectByID}  from "../utils/dbconnection";
 
 export const save = async (project: Project) => {
-   
+    return await save(project);
 }
 
 export const getById = async (id: number) => {
@@ -14,17 +14,12 @@ export const getByProjectName = async (name: string) => {
 }
 
 export const getAll = async () => {
-    console.log("model getAll called");
     return await getData();
 }
 
-export const incrementVisit = async (id: number) => {
-    return await incrementCount(id);
-}
 export default {
     getById,
     save,
     getByProjectName,
-    getAll,
-    incrementVisit
+    getAll
 }

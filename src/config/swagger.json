@@ -25,7 +25,7 @@
     "/projects": {
       "get": {
         "tags": ["projects"],
-        "summary": "Get info project info from github",
+        "summary": "Get info for all registered projects from github",
         "consumes": ["application/json"],
         "produces": ["application/json"],
         "parameters": [],
@@ -39,7 +39,7 @@
     "/projects/{name}": {
       "get": {
         "tags": ["projects"],
-        "summary": "Get info from a specific project from github",
+        "summary": "Get info from a specific project by given name from github",
         "consumes": ["application/json"],
         "produces": ["application/json"],
         "parameters": [
@@ -53,6 +53,9 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "404": {
+            "description": "Not Found"
           }
         }
       }

@@ -8,7 +8,7 @@ let config: Config = require('./config/config.json');
 //app.use('/doc', express.static('swagger/public/doc'));
 
 const swaggerUi = require('swagger-ui-express'),
-swaggerDocument = require('../swagger.json');
+swaggerDocument = require('./config/swagger.json');
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
