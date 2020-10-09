@@ -1,5 +1,6 @@
 import axios from "axios";
-import { Project } from "../beans/project";
+import { Issue } from "../beans/issue";
+import Project from "../beans/project";
 
 import * as config from "../config/config.json";
 
@@ -28,17 +29,18 @@ export const getIssuesByProjectPath = async (project: Project) => {
   };
 
   while (currentPage <= totalPages) {
-    const issuesPath = project.company_name.concat(
+    const url = baseUrl.concat(
+      "repos/",
+      project.company_name,
       "/",
       project.project_name,
       `/issues?page=${currentPage}&per_page=${itensPerPage}`,
     );
-    const url = baseUrl.concat("repos/").concat(issuesPath);
     console.log("caliing issues, url: ", url);
     const partial = await axios.get(url, { headers });
     result.data = result.data.concat(
       partial.data
-        .filter(issue => issue.state === "open")
+        .filter((issue: Issue) => issue.state === "open")
         .map(function getOpenDays(item: any) {
           const diffInTime = Math.abs(new Date().getTime() - new Date(item.created_at).getTime());
           const diffInDays = Math.floor(diffInTime / (1000 * 3600 * 24));

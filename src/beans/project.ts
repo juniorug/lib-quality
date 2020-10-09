@@ -1,5 +1,5 @@
-export class Project {
-  id: number;
+export default class Project {
+  id: number | undefined;
 
   project_name: string;
 
@@ -7,26 +7,13 @@ export class Project {
 
   user_visit: number;
 
-  constructor(project_name: string, company_name: string) {
-    this.project_name = project_name;
-    this.company_name = company_name;
+  constructor(projectName: string, companyName: string) {
+    this.project_name = projectName;
+    this.company_name = companyName;
     this.user_visit = 0;
   }
 
-  public getProjectPath() {
+  public getProjectPath(): string {
     return this.company_name.concat("/", this.project_name);
-  }
-
-  private getCompanyName() {
-    switch (this.project_name) {
-      case "react":
-        return "facebook";
-      case "angular":
-        return "angular";
-      case "vue":
-        return "vuejs";
-      default:
-        throw new Error("Invalid Project");
-    }
   }
 }
