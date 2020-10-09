@@ -39,15 +39,15 @@ export const getIssuesByProjectPath = async (project: Project) => {
     result.data = result.data.concat(
       partial.data
         .filter(issue => issue.state === "open")
-        .map(function(item: any) {
-          return {
-            id: item.id,
-            number: item.number,
-            createdAt: item.created_at,
-          };
+        .map(function getOpenDays(item: any) {
+          const diffInTime = Math.abs(new Date().getTime() - new Date(item.created_at).getTime());
+          const diffInDays = Math.floor(diffInTime / (1000 * 3600 * 24));
+          return diffInDays;
         }),
     );
-    currentPage++;
+    currentPage += 1;
   }
-  return result.data;
+  return result.data.reduce(function average(avg, value, _, { length }) {
+    return avg + value / length;
+  }, 0);
 };
