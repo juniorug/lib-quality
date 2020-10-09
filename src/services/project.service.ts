@@ -22,13 +22,12 @@ export const getProjectByProjectPath = async (project: Project): Promise<Project
 export const getIssuesByProjectPath = async (project: Project) => {
   const itensPerPage = 5; // 50
   const openIssues = 14; // 521
-  let currentPage = 1;
   const totalPages = Math.ceil(openIssues / itensPerPage);
   const result = {
     data: [],
   };
 
-  while (currentPage <= totalPages) {
+  for (let currentPage = 1; currentPage <= totalPages; currentPage += 1) {
     const url = baseUrl.concat(
       "repos/",
       project.company_name,
@@ -47,7 +46,6 @@ export const getIssuesByProjectPath = async (project: Project) => {
           return diffInDays;
         }),
     );
-    currentPage += 1;
   }
   return result.data.reduce(function average(avg, value, _, { length }) {
     return avg + value / length;
