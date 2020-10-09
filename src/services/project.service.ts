@@ -15,6 +15,7 @@ const headers = {
 export const getProjectByProjectPath = async (project: Project): Promise<Project> => {
   const projectPath = project.company_name.concat("/", project.project_name);
   const url = baseUrl.concat("repos/").concat(projectPath);
+  console.log("caliing getProjects, url: ", url);
   const result = await axios.get(url, { headers });
   return result.data;
 };

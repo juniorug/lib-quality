@@ -25,4 +25,16 @@ appRouter.get("/projects/:name/issues", async function getProjectIssues(req, res
   }
 });
 
+appRouter.get("/start", async function startProject(_req, res) {
+  console.log("startProject called");
+  try {
+    await projectController.startProject();
+    console.log("startProject called3");
+    res.status(200).send("3");
+  } catch (error) {
+    console.log("startProject called4");
+    res.status(500).send();
+  }
+});
+
 export default appRouter;

@@ -1,6 +1,6 @@
 import * as projectService from "../services/project.service";
 import * as projectModel from "../models/project.model";
-import { Project } from "../beans/project";
+import Project from "../beans/project";
 
 export const getProjects = async () => {
   try {
@@ -69,4 +69,8 @@ export const getProjectById = async (id: number) => {
   }
 };
 
-export default { getProjects, getProjectByName };
+export const startProject = async (): Promise<void> => {
+  console.log("startProject called2");
+};
+
+export default { getProjects, getProjectByName, startProject };
