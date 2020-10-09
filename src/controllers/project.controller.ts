@@ -3,25 +3,12 @@ import * as projectModel from "../models/project.model";
 import Project from "../beans/project";
 
 export const getProjects = async () => {
-  try {
-    const projects: Project[] = await projectModel.getAll();
-    const githubData: any = [];
-
-    const promises = projects.map(async project => {
-      const githubProjectData = await projectService.getProjectByProjectPath(project);
-      githubData.push(githubProjectData);
-    });
-
-    await Promise.all(promises);
-    return githubData;
-  } catch (error) {
-    console.log(error);
-  }
+  return projectService.getProjects();
 };
 
-export const getProjectByName = async (project_name: string) => {
+export const getProjectByName = async (projectName: string) => {
   try {
-    const project: Project = await projectModel.getByProjectName(project_name);
+    const project: Project = await projectModel.getByProjectName(projectName);
     let result;
 
     if (project) {
@@ -69,8 +56,13 @@ export const getProjectById = async (id: number) => {
   }
 };
 
-export const startProject = async (): Promise<void> => {
-  console.log("startProject called2");
+export const startProject = async () => {
+  // console.log("startProject called2");
+  return projectService.startProject();
+  // const projects = await getProjects();
+  /* projects.array.forEach(element => {
+    console.log("[Project name: ", element.project_name, "][open_issues_count: ", element.open_issues_count, "]");
+  }); */
 };
 
 export default { getProjects, getProjectByName, startProject };

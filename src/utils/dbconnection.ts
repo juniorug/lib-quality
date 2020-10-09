@@ -16,7 +16,7 @@ export const save = async (project: Project): Promise<void> => {
 export const getProjectByName = async (projectName: string): Promise<Project[]> => {
   const temp = await getData();
   const result = _.chain(temp)
-    .filter(x => x.project_name === projectName)
+    .filter((x: Project) => x.project_name === projectName)
     .first()
     .value();
   if (result) {
@@ -34,5 +34,18 @@ export const getProjectByID = async (id: number): Promise<Project> => {
     .value();
   temp[result.id - 1].user_visit = temp[result.id - 1].user_visit + 1;
   db.push("/", temp);
+  return result;
+};
+
+export const updateProject = async (project: Project): Promise<Project[]> => {
+  const temp = await getData();
+  const result = _.chain(temp)
+    .filter((x: Project) => x.id === project.id)
+    .first()
+    .value();
+  if (result) {
+    temp[result.id - 1] = project;
+    db.push("/", temp);
+  }
   return result;
 };
