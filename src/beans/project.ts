@@ -21,8 +21,4 @@ export default class Project {
     this.open_issues_count = 0;
     this.avg_opened_issues = 0;
   }
-
-  public getProjectPath(): string {
-    return this.company_name.concat("/", this.project_name);
-  }
 }

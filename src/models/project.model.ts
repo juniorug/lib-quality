@@ -1,23 +1,23 @@
-import { Project } from "../beans/project";
-import { getData, getProjectByName, getProjectByID, updateProject } from "../utils/dbconnection";
+import Project from "../beans/project";
+import { save, getData, getProjectByName, getProjectByID, updateProject } from "../utils/dbconnection";
 
-export const save = async (project: Project) => {
+export const saveProject = async (project: Project): Promise<void> => {
   return save(project);
 };
 
-export const getById = async (id: number) => {
+export const getById = async (id: number): Promise<Project[]> => {
   return getProjectByID(id);
 };
 
-export const getByProjectName = async (name: string) => {
+export const getByProjectName = async (name: string): Promise<Project[]> => {
   return getProjectByName(name);
 };
 
-export const getAll = async () => {
+export const getAll = async (): Promise<Project[]> => {
   return getData();
 };
 
-export const update = async (project: Project) => {
+export const update = async (project: Project): Promise<Project> => {
   return updateProject(project);
 };
 

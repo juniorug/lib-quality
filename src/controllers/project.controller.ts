@@ -2,11 +2,23 @@ import * as projectService from "../services/project.service";
 import * as projectModel from "../models/project.model";
 import Project from "../beans/project";
 
-export const getProjects = async () => {
+export const getProjects = async (): Promise<Project[]> => {
   return projectService.getProjects();
 };
 
+export const getGithubProjects = async () => {
+  return projectService.getGithubProjects();
+};
+
 export const getProjectByName = async (projectName: string) => {
+  try {
+    return await projectModel.getByProjectName(projectName);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const getGithubProjectByName = async (projectName: string) => {
   try {
     const project: Project = await projectModel.getByProjectName(projectName);
     let result;
@@ -44,25 +56,15 @@ export const getIssuesByProjectByName = async (projectName: string) => {
 
 export const getProjectById = async (id: number) => {
   try {
-    const project: Project = await projectModel.getById(id);
-    const data = await projectService.getProjectByProjectPath(project);
-    const result = {
-      visit: project.user_visit,
-      data,
-    };
-    return result;
+    return await projectModel.getById(id);
   } catch (error) {
     console.log(error);
   }
 };
 
 export const startProject = async () => {
-  // console.log("startProject called2");
+  console.log("startProject called");
   return projectService.startProject();
-  // const projects = await getProjects();
-  /* projects.array.forEach(element => {
-    console.log("[Project name: ", element.project_name, "][open_issues_count: ", element.open_issues_count, "]");
-  }); */
 };
 
 export default { getProjects, getProjectByName, startProject };

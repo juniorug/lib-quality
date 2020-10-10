@@ -1,7 +1,7 @@
 import { JsonDB } from "node-json-db";
 import { Config } from "node-json-db/dist/lib/JsonDBConfig";
 import * as _ from "lodash";
-import { Project } from "../beans/project";
+import Project from "../beans/project";
 
 const db = new JsonDB(new Config("src/config/db.json", true, false, "/"));
 
@@ -37,7 +37,7 @@ export const getProjectByID = async (id: number): Promise<Project> => {
   return result;
 };
 
-export const updateProject = async (project: Project): Promise<Project[]> => {
+export const updateProject = async (project: Project): Promise<Project> => {
   const temp = await getData();
   const result = _.chain(temp)
     .filter((x: Project) => x.id === project.id)
