@@ -46,8 +46,6 @@ export const getGithubProjects = async () => {
 };
 
 export const getIssuesByProjectPath = async (project: Project) => {
-  console.log("XXX getIssuesByProjectPath called");
-
   const itensPerPage = 50;
   const totalPages = Math.ceil(project.open_issues_count / itensPerPage);
   const result = {
