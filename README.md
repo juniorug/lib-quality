@@ -41,4 +41,4 @@ http://localhost:8080/api-docs/#/
 
 ## How it works 
 
-On the startup, the application calls some Github API's in parallel to grab some data about known projects. Then, the application consolidates these info and make it available through REST API's. The method to grab/update information from Github can also be called by the ```/start``` endpoint.
+At the startup, the application calls some Github API's in parallel to grab some data about known projects. Then, the application consolidates these info and make it available through REST API's. The method to grab/update information from Github can also be called by the ```/start``` endpoint.
