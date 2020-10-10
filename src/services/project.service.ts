@@ -9,7 +9,7 @@ const baseUrl = config.github_url;
 const headers = {
   Accept: "application/vnd.github.v3+json",
   "Content-Type": "application/json",
-  Authorization: "b856ffc3fe75466738ccfb1c58997db9191502e1",
+  Authorization: "",
 };
 
 function filterByName(nameToCompare: string) {
